@@ -52,7 +52,8 @@ This will return your Token.
 
 `http://localhost:8000/api/v1/events/` - Events endpoint. Allow to get list of events (GET method, require authentication) or create new event (POST method, require authentication).   
 
-To create new Event just send POST request to this endpoint with `event_type`, `info`, and `timestamp` in request body:
+To create new Event just send POST request to this endpoint with `event_type`(ID), `info`(JSON), and `timestamp` in request body. (You must already have some EventTypes in your DB. To create it check bellow.)  
+For example:
 <pre>
 {
     "event_type":2,
@@ -66,8 +67,23 @@ To create new Event just send POST request to this endpoint with `event_type`, `
 </pre>
 <hr>
 
-`http://localhost:8000/api/v1/posts/<id>/` - Endpoint for Event with `id=event id`. Here you can get, update, delete event. Require authentication.  
+`http://localhost:8000/api/v1/events/<id>/` - Endpoint for Event with `id=event id`. Here you can get, update, delete event. Require authentication.  
 Return selected event.
+<hr>
+
+`http://localhost:8000/api/v1/event-types/` - EventTypes endpoint. Allow to get list of event types (GET method, require authentication) or create new event type (POST method, require authentication).   
+
+To create new EventType just send POST request to this endpoint with `name` in request body.  
+For example:  
+<pre>
+{
+    "name": "First Event"
+}
+</pre>
+<hr>
+
+`http://localhost:8000/api/v1/event-types/<id>/` - Endpoint for EventType with `id=event type id`. Here you can get, update, delete event type. Require authentication.  
+Return selected event type.
 <hr>
 
 
